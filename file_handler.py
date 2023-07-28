@@ -19,4 +19,7 @@ class File_handler:
             if self.__line[0] == "CALCULATE_OVERLAP":
                 self.__portfolio_manager.calculate_overlap(self.__line[1])
 
+            if self.__line[0] == "ADD_STOCK":
+                self.__portfolio_manager.add_stock(self.__line[1], self.__line[2:])
+
 
