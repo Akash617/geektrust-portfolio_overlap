@@ -13,10 +13,10 @@ class File_handler:
             # Format lines, remove the newline and split into a list
             self.__line = self.__line.replace("\n", "").split(" ")
 
-            if self.__line == "CURRENT_PORTFOLIO":
-                self.__portfolio_manager.add_portfolio(stock_data, self.__line[1:])
+            if self.__line[0] == "CURRENT_PORTFOLIO":
+                self.__portfolio_manager.add_portfolio(self.__line[1:])
 
-            if self.__line == "CALCULATE_OVERLAP":
+            if self.__line[0] == "CALCULATE_OVERLAP":
                 self.__portfolio_manager.calculate_overlap(self.__line[1])
 
 
