@@ -7,10 +7,6 @@ class Portfolio_manager:
         self.__printer = printer.Printer()
 
 
-    def get_portfolio(self):
-        return self.__portfolio
-
-
     def is_fund_name_valid(self, fund):
         if fund in self.__stock_data.keys():
             return True
@@ -22,6 +18,8 @@ class Portfolio_manager:
     def add_portfolio(self, portfolios):
         for portfolio in portfolios:
             self.__portfolio[portfolio] = self.__stock_data[portfolio]
+
+        return self.__portfolio
 
 
     def add_stock(self, fund, stock_name_list):

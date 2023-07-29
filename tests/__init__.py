@@ -8,11 +8,11 @@ class test_portfolio_manager(unittest.TestCase):
     def create_stock_data_and_portfolio_manager(self):
         stock_data_file_path = "stock_data.json"
         stock_data_file = open(stock_data_file_path)
-        self.stocks = json.load(stock_data_file)["funds"]
+        self.__stocks = json.load(stock_data_file)["funds"]
         stock_data = {}
         stock_data_file.close()
 
-        for stock in self.stocks:
+        for stock in self.__stocks:
             stock_data[stock["name"]] = stock["stocks"]
 
         portfolio_manager_variable = portfolio_manager.Portfolio_manager(stock_data)
@@ -24,9 +24,9 @@ class test_portfolio_manager(unittest.TestCase):
         stock_data, portfolio_manager = self.create_stock_data_and_portfolio_manager()
 
         fund_to_add = ["ICICI_PRU_NIFTY_NEXT_50_INDEX"]
-        portfolio_manager.add_portfolio(fund_to_add)
+        portfolio = portfolio_manager.add_portfolio(fund_to_add)
 
-        self.assertEqual(portfolio_manager.get_portfolio()["ICICI_PRU_NIFTY_NEXT_50_INDEX"],
+        self.assertEqual(portfolio["ICICI_PRU_NIFTY_NEXT_50_INDEX"],
                          stock_data["ICICI_PRU_NIFTY_NEXT_50_INDEX"])
 
 
