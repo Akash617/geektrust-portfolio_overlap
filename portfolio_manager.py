@@ -7,6 +7,10 @@ class Portfolio_manager:
         self.__printer = printer.Printer()
 
 
+    def get_portfolio(self):
+        return self.__portfolio
+
+
     def is_fund_name_valid(self, fund):
         if fund in self.__stock_data.keys():
             return True
@@ -26,10 +30,13 @@ class Portfolio_manager:
 
         stock_name = " ".join(stock_name_list)
 
-        new_stock_list = self.__portfolio[fund]
+        new_stock_list = self.__stock_data[fund]
         new_stock_list.append(stock_name)
 
-        self.__portfolio[fund] = new_stock_list
+        if fund in self.__portfolio.keys():
+            self.__portfolio[fund] = new_stock_list
+
+        self.__stock_data[fund] = new_stock_list
 
 
     def calculate_overlap(self, fund):
