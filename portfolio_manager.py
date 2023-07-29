@@ -38,8 +38,6 @@ class Portfolio_manager:
 
         for key, value in self.__portfolio.items():
             overlap_percentage = self.get_overlap_between_two_funds(self.__stock_data[fund], value)
-            if overlap_percentage == 0:
-                continue
             self.__printer.print_overlap(fund, key, overlap_percentage)
 
 

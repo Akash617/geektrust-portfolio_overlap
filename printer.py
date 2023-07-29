@@ -4,6 +4,8 @@ class Printer:
 
 
     def print_overlap(self, fund, my_fund, overlap_percentage):
+        if overlap_percentage == 0:
+            return
         print("{0} {1} {2:.2f}%".format(fund, my_fund, overlap_percentage))
 
 
